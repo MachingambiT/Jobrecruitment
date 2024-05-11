@@ -1,0 +1,53 @@
+body {
+    background-color: #1e3752; /* Dark blue background color */
+    color: #ffffff; /* White text color */
+    font-family: Arial, sans-serif; /* Use a default font */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-control {
+    border-color: #ffffff; /* White border color */
+}
+
+.btn-primary {
+    background-color: #0069d9; /* Dark blue button background color */
+    border-color: #0062cc; /* Dark blue button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Dark blue button background color on hover */
+    border-color: #0052b3; /* Dark blue button border color on hover */
+}
+
+.modal-content {
+    background-color: #1e3752; /* Dark blue modal background color */
+    color: #ffffff; /* White modal text color */
+    border: 1px solid #ffffff; /* White modal border */
+}
+
+.modal-header {
+    border-bottom: none; /* Remove border from modal header */
+}
+
+.modal-body {
+    text-align: center; /* Center modal body content */
+}
+
+.modal-body img {
+    max-width: 50%; /* Limit image width to 50% of modal body */
+}
+
+.modal-body h2 {
+    margin-top: 20px; /* Add some margin above modal heading */
+}
