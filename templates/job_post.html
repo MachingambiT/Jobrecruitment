@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+Job POST
+{% endblock %}
+
+{% block Addnav %}
+  <li class="nav-item active">
+    <a class="nav-link" href="/HR_Homepage">HR Homepage</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="background-color: darkblue; height: 100vh; display: flex; justify-content: center; align-items: center;">
+  <div class="container" style="background-color: white; padding: 20px; border-radius: 10px;">
+    {% if errorMsg %}
+    <h2 class="alert alert-danger" style="text-align: center">{{errorMsg}}</h2>
+    {% endif %} 
+    {% if successMsg %}
+    <h2 class="alert alert-success" style="text-align: center">{{successMsg}}</h2>
+    {% endif %}
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button
+        type="button"
+        class="btn btn-info me-md-5 mb-3"
+        data-bs-toggle="modal"
+        data-bs-target="#jobpost"
+      >
+        + Post a Job
+      </button>
+    </div>
+    <div class="row">
+      {% for i in range(0, data|length) %}
+      <div class="col-lg-4 col-md-6 col-xs-12">
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row g-0">
+            <div
+              class="col-auto"
+              style="margin: auto; width: 60%; padding: 10px"
+            >
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  {{data[i]['Job_Profile']}}<span
+                    class="badge rounded-pill bg-warning text-dark"
+                    >New</span
+                  >
+                </h5>
+                <p class="card-text text-center">
+                  <strong>Company:</strong>{{data[i]['CompanyName']}}
+                </p>
+                <p class="card-text text-center">
+                  <strong>{{ data[i]['Salary'] }}</strong>
+                </p>
+                <p class="card-text text-center">
+                  <small class="text-muted">{{data[i]['LastDate']}}</small>
+                </p>
+                <p>
+                  <button
+                    class="btn btn-outline-success view_candidates"
+                    id="{{ data[i]['job_id'] }}"
+                    data-bs-toggle="modal"
+                    data-bs-target="#view_candidates"
+                  >
+                    View Applied Candidates
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="jobpost"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <!-- Modal content goes here -->
+</div>
+<div
+  class="modal fade"
+  id="view_candidates"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <!-- Modal content goes here -->
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+  var $j = jQuery.noConflict();
+</script>
+<script>
+  // JavaScript code for event handling
+</script>
+{% endblock %}

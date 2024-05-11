@@ -1,0 +1,87 @@
+<!--<html>
+<head>
+  <style>
+    body {
+      background-color: darkblue;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #0d47a1;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .form-container form {
+      text-align: center;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="password"],
+    .form-container input[type="email"],
+    .form-container input[type="number"],
+    .form-container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-container input[type="submit"] {
+      background-color: #1976d2;
+      color: white;
+      cursor: pointer;
+    }
+    .form-container input[type="submit"]:hover {
+      background-color: #1565c0;
+    }
+    .message {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form method="post">
+      <p>Enter your HR details:</p>
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="number" name="hr_id" placeholder="HR ID" required />
+      <input type="submit" value="Submit" />
+    </form>
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
+-->
+<style>
+  .form-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+</style>
+
+<html>
+  <body>
+    <div class="form-container">
+      <form method="post">
+        <p>What is your unique HR ID?</p>
+        <input type="number" name="response" />
+        <input type="submit" value="Submit" />
+      </form>
+      {% if message %}
+      <p>{{ message }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

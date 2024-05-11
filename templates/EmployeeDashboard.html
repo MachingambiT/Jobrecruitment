@@ -1,0 +1,94 @@
+{% extends "base.html" %} 
+{% block title %}
+WELCOME TO CANDIDATES DASHBOARD
+{% endblock %} 
+{% block Addnav %}
+<li class="nav-item active">
+  <a class="nav-link" href="/HR1/show_job">Jobs</a>
+</li>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 mt-5">
+        <h2>Hello, {{ session['user_name'] }}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-lg-6 mt-5">
+        <form action="/uploadResume" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label class="fs-4 font-weight-bold mb-3">Please Upload Your Resume Here:</label>
+            <input type="file" class="form-control form-control-lg" name="resume" accept=".pdf, .docx">
+            <p class="form-text fs-6 text-muted text-danger" style="text-align: right">
+              Only .docx or .pdf file types are allowed
+            </p>
+          </div>
+          <div class="form-group mt-5">
+            <input type="submit" name="resumeSubmit" class="btn btn-primary btn-lg w-50" value="Upload Resume">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for success message -->
+<div class="modal fade" id="success_Show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="border: none">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <img src="{{ url_for('static',filename='images/check.png') }}" style="width: 50%; height: 60%" class="img-fluid mx-auto d-block">
+              <h2 class="text-center">Successfully Uploaded!!</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for error message -->
+<div class="modal fade" id="error_Show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="border: none">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <img src="{{ url_for('static',filename='images/cross1.png') }}" style="width: 50%; height: 60%" class="img-fluid mx-auto d-block">
+              <h2 class="text-center mt-4">Please upload your Resume first</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+{% if errorMsg %}
+<script>
+  $('#error_Show').modal('show');
+</script>
+{% endif %}
+
+{% if successMsg %}
+<script>
+  $('#success_Show').modal('show');
+</script>
+{% endif %}
+{% endblock %}
