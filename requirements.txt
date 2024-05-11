@@ -1,0 +1,9 @@
+docx2txt
+Flask
+Flask-PyMongo
+google-auth
+google-auth-oauthlib
+PyMuPDF
+scikit-learn
+spacy
+spacy-transformers
